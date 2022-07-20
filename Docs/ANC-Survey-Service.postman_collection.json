@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "3ba20412-af27-47ca-89de-2102af3d1708",
+		"name": "ANC-Survey-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4385456"
+	},
+	"item": [
+		{
+			"name": "CreateSurvey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"ANC01\",\r\n\t\"description\": \"Test01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/admin/survey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"admin",
+						"survey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddQuestion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"surveyId\":1,\r\n    \"questionLabel\": \"Q2\",\r\n\t\"options\":[{\r\n        \"answer\":\"A1\"\r\n    },\r\n    {\r\n        \"answer\":\"A2\"\r\n    },\r\n    {\r\n        \"answer\":\"A3\"\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/admin/survey/question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"admin",
+						"survey",
+						"question"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateQuestionnaire",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"username\": \"usr1\",\r\n        \"status\": \"Completed\",\r\n\t\t\"surveyId\" : \"1\",\r\n        \"questionAnswer\": [{\r\n\t\t\t\"questionId\":1,\r\n\t\t\t\"answerId\":1\r\n\t\t},{\r\n\t\t\t\"questionId\":1,\r\n\t\t\t\"answerId\":2\r\n\t\t},\r\n        {\"questionId\":2,\r\n\t\t\t\"answerId\":5\r\n        }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/customer/questionnaire",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"customer",
+						"questionnaire"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSurvey",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/admin/survey?limit=10&offset=0&sortBy=name&sortOrder=dsc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"admin",
+						"survey"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "sortBy",
+							"value": "name"
+						},
+						{
+							"key": "sortOrder",
+							"value": "dsc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetQuestions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8086/api/admin/survey/question?limit=10&offset=0&sortBy=questionLabel&sortOrder=dsc&surveyId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"admin",
+						"survey",
+						"question"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "sortBy",
+							"value": "questionLabel"
+						},
+						{
+							"key": "sortOrder",
+							"value": "dsc"
+						},
+						{
+							"key": "surveyId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetQuestionnaire",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/api/customer/questionnaire?surveyId=1&username=usr1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"api",
+						"customer",
+						"questionnaire"
+					],
+					"query": [
+						{
+							"key": "surveyId",
+							"value": "1"
+						},
+						{
+							"key": "username",
+							"value": "usr1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
