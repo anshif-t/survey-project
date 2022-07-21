@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "1c482874-fee2-471d-bb03-883d286d114a",
-		"name": "ANC-Survey-API Gateway",
+		"_postman_id": "3ba20412-af27-47ca-89de-2102af3d1708",
+		"name": "ANC-Survey-Service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "4385456"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Survey01\",\r\n\t\"description\": \"Test01\"\r\n}",
+					"raw": "{\r\n\t\"name\": \"Football Survey\",\r\n\t\"description\": \"Survey for football\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,14 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/admin/survey",
+					"raw": "http://localhost:8086/api/admin/survey",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"admin",
 						"survey"
@@ -44,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"surveyId\":1,\r\n    \"questionLabel\": \"Q2\",\r\n\t\"options\":[{\r\n        \"answer\":\"A1\"\r\n    },\r\n    {\r\n        \"answer\":\"A2\"\r\n    },\r\n    {\r\n        \"answer\":\"A3\"\r\n    }]\r\n}",
+					"raw": "{\r\n\t\"surveyId\":1,\r\n    \"questionLabel\": \"Who is your Favourite player ?\",\r\n\t\"options\":[{\r\n        \"answer\":\"Messi\"\r\n    },\r\n    {\r\n        \"answer\":\"CR7\"\r\n    },\r\n    {\r\n        \"answer\":\"Neymar\"\r\n    }]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -52,14 +51,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/admin/survey/question",
+					"raw": "http://localhost:8086/api/admin/survey/question",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"admin",
 						"survey",
@@ -83,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"id\": null,\r\n        \"username\": \"usr1\",\r\n        \"status\": \"In Progress\",\r\n\t\t\"surveyId\" : \"1\",\r\n        \"questionAnswer\": [\r\n        {\"questionId\":1,\r\n\t\t\t\"answerId\":2\r\n        }\r\n        ]\r\n    }",
+					"raw": "{\r\n        \"id\": null,\r\n        \"username\": \"usr1\",\r\n        \"status\": \"Completed\",\r\n\t\t\"surveyId\" : \"1\",\r\n        \"questionAnswer\": [{\r\n\t\t\t\"questionId\":1,\r\n\t\t\t\"answerId\":1\r\n\t\t},{\r\n\t\t\t\"questionId\":1,\r\n\t\t\t\"answerId\":2\r\n\t\t},\r\n        {\"questionId\":1,\r\n\t\t\t\"answerId\":3\r\n        }\r\n        ]\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,14 +89,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/customer/questionnaire",
+					"raw": "http://localhost:8086/api/customer/questionnaire",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"customer",
 						"questionnaire"
@@ -138,14 +135,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/admin/survey?limit=10&offset=0&sortBy=name&sortOrder=dsc",
+					"raw": "http://localhost:8086/api/admin/survey?limit=10&offset=0&sortBy=name&sortOrder=dsc",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"admin",
 						"survey"
@@ -184,14 +180,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/admin/survey/question?limit=10&offset=0&sortBy=questionLabel&sortOrder=dsc&surveyId=1",
+					"raw": "http://localhost:8086/api/admin/survey/question?limit=10&offset=0&sortBy=questionLabel&sortOrder=dsc&surveyId=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"admin",
 						"survey",
@@ -241,14 +236,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/survey-service/api/customer/questionnaire?surveyId=1&username=usr1",
+					"raw": "http://localhost:8086/api/customer/questionnaire?surveyId=1&username=usr1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8086",
 					"path": [
-						"survey-service",
 						"api",
 						"customer",
 						"questionnaire"
